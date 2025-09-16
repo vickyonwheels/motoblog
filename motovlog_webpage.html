@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoVlogs | Ride With Me</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    /* ===== GLOBAL ===== */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; line-height: 1.6; background: #0e0e0e; color: #fff; transition: 0.3s;}
+    a {text-decoration: none; color: inherit;}
+    h1,h2,h3 {font-weight: bold;}
+
+    body.light-mode {background: #f8f8f8; color: #111;}
+    body.light-mode header {background: rgba(255,255,255,0.9);}
+    body.light-mode .logo span {color: #111;}
+    body.light-mode nav ul li a {color: #111;}
+    body.light-mode .about, body.light-mode .contact {background: #fff; color: #111;}
+    body.light-mode .videos {background: #f0f0f0; color: #111;}
+    body.light-mode .video-card {background: #fff;}
+    body.light-mode .btn {background: #111; color: #fff;}
+
+    /* ===== NAVBAR ===== */
+    header {position: fixed; top: 0; left: 0; width: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; z-index: 1000; transition: 0.3s;}
+    .logo {font-size: 1.8rem; font-weight: bold; color: #ff4500;}
+    .logo span {color: #fff;}
+    nav ul {display: flex; list-style: none;}
+    nav ul li {margin: 0 15px;}
+    nav ul li a {color: #fff; font-size: 1rem; transition: 0.3s;}
+    nav ul li a:hover {color: #ff4500;}
+
+    /* ===== TOGGLE BUTTON ===== */
+    .toggle-btn {cursor: pointer; font-size: 1.5rem; margin-left: 20px; color: #ff4500; transition: 0.3s;}
+    .toggle-btn:hover {color: #fff;}
+
+    /* ===== HERO ===== */
+    .hero {height: 100vh; background: url('gt650.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 20px;}
+    .hero h1 {font-size: 3rem; margin-bottom: 15px; text-shadow: 2px 2px 10px #000;}
+    .hero p {font-size: 1.2rem; margin-bottom: 25px;}
+    .btn {background: #ff4500; padding: 12px 25px; border-radius: 30px; color: #fff; font-weight: bold; transition: 0.3s;}
+    .btn:hover {background: #e63e00;}
+
+    /* ===== ABOUT ===== */
+    .about {padding: 80px 20px; background: #1a1a1a; text-align: center;}
+    .about h2 {font-size: 2.5rem; margin-bottom: 20px;}
+    .about p {max-width: 700px; margin: auto; font-size: 1.1rem; color: #ddd;}
+
+    /* ===== VIDEOS ===== */
+    .videos {padding: 80px 20px; background: #111; text-align: center;}
+    .videos h2 {font-size: 2.5rem; margin-bottom: 40px;}
+    .video-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;}
+    .video-card {background: #1e1e1e; border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;}
+    .video-card:hover {transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5);}
+    .video-card img {width: 100%; height: 200px; object-fit: cover;}
+    .video-card h3 {padding: 15px; font-size: 1.2rem; color: #ff4500;}
+
+    /* ===== MODAL ===== */
+    .modal {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 2000;}
+    .modal iframe {width: 80%; height: 60%; border: none; border-radius: 12px;}
+    .close {position: absolute; top: 20px; right: 30px; font-size: 2rem; color: #fff; cursor: pointer;}
+
+    /* ===== CONTACT ===== */
+    .contact {padding: 80px 20px; background: #1a1a1a; text-align: center;}
+    .contact h2 {font-size: 2.5rem; margin-bottom: 20px;}
+    .contact p {margin-bottom: 25px; color: #ccc;}
+    .social-links a {margin: 0 10px; font-size: 2rem; color: #ff4500; transition: 0.3s;}
+    .social-links a:hover {color: #fff;}
+
+    /* ===== FOOTER ===== */
+    footer {background: #000; text-align: center; padding: 20px; font-size: 0.9rem; color: #888;}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 {font-size: 2.2rem;}
+      .hero p {font-size: 1rem;}
+      header {padding: 15px 20px;}
+      nav ul li {margin: 0 10px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header id="navbar">
+    <div class="logo">Moto<span>Vlogs</span></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="toggle-btn" id="toggleMode"><i class='bx bx-moon'></i></div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Ride. Record. Relive.</h1>
+      <p>Follow my journey across highways, cities, and mountains through Moto-Vlogs.</p>
+      <a href="#videos" class="btn">Watch My Vlogs</a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I'm a passionate rider who documents adventures on two wheels. From city rides to mountain trails, I bring you raw, real, and thrilling Moto-Vlogs. Subscribe and join the ride!</p>
+    </div>
+  </section>
+
+  <!-- VIDEOS SECTION -->
+  <section id="videos" class="videos">
+    <h2>Latest Vlogs</h2>
+    <div class="video-grid">
+      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/VIDEO_ID1')">
+        <img src="https://img.youtube.com/vi/VIDEO_ID1/maxresdefault.jpg" alt="Vlog 1">
+        <h3>Epic Mountain Ride</h3>
+      </div>
+      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/VIDEO_ID2')">
+        <img src="https://img.youtube.com/vi/VIDEO_ID2/maxresdefault.jpg" alt="Vlog 2">
+        <h3>Night City Adventure</h3>
+      </div>
+      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/VIDEO_ID3')">
+        <img src="https://img.youtube.com/vi/VIDEO_ID3/maxresdefault.jpg" alt="Vlog 3">
+        <h3>Highway Thrills</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO POPUP MODAL -->
+  <div id="videoModal" class="modal">
+    <span class="close" onclick="closeVideo()">&times;</span>
+    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Let’s connect for collaborations, rides, or sponsorships!</p>
+    <div class="social-links">
+      <a href="#"><i class='bx bxl-youtube'></i></a>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook'></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 MotoVlogs. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // NAVBAR SCROLL EFFECT
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(0,0,0,0.95)';
+      } else {
+        navbar.style.background = 'rgba(0,0,0,0.8)';
+      }
+    });
+
+    // VIDEO MODAL
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+
+    function openVideo(url) {
+      modal.style.display = 'flex';
+      videoFrame.src = url + '?autoplay=1';
+    }
+    function closeVideo() {
+      modal.style.display = 'none';
+      videoFrame.src = '';
+    }
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // DARK/LIGHT MODE TOGGLE
+    const toggleBtn = document.getElementById('toggleMode');
+    const body = document.body;
+    let isLight = false;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      isLight = !isLight;
+      toggleBtn.innerHTML = isLight ? "<i class='bx bx-sun'></i>" : "<i class='bx bx-moon'></i>";
+    });
+  </script>
+</body>
+</html>
