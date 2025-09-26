@@ -71,12 +71,12 @@
     .about p {max-width: 1000px; margin: auto; font-size: 1.1rem; color: #ddd;}
 
     /* ===== NEW SECTIONS ===== */
-    .gear, .instagram, .wallpapers, .spotify {
+    .gear, .instagram, .spotify {
       padding: 80px 20px;
       background: rgba(0,0,0,0.7);
       text-align: center;
     }
-    .gear h2, .instagram h2, .wallpapers h2, .spotify h2 {
+    .gear h2, .instagram h2, .spotify h2 {
       font-size: 2.5rem;
       margin-bottom: 40px;
     }
@@ -222,7 +222,6 @@
 <li><a href="#videos">Youtube</a></li>
 <li><a href="#spotify">Spotify</a></li>
 <li><a href="#gear">Gears</a></li>
-<li><a href="#wallpapers">Wallpapers</a></li>
 </ul>
 </nav>
 </header>
@@ -245,6 +244,10 @@
 <section class="videos" id="videos">
 <h2>Youtube Vlogs</h2>
 <div class="video-grid">
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/5BR9OJgX5cM')">
+<img alt="Vlog 3" src="https://img.youtube.com/vi/5BR9OJgX5cM/maxresdefault.jpg"/>
+<h3>Mountain Ride</h3>
+</div>
 <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/rYPozqWB5gA')">
 <img alt="Vlog 1" src="https://img.youtube.com/vi/rYPozqWB5gA/maxresdefault.jpg"/>
 <h3>Night Ride</h3>
@@ -252,10 +255,6 @@
 <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/Iu9K4sWfbkw')">
 <img alt="Vlog 2" src="https://img.youtube.com/vi/Iu9K4sWfbkw/maxresdefault.jpg"/>
 <h3>City Ride</h3>
-</div>
-<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/5BR9OJgX5cM')">
-<img alt="Vlog 3" src="https://img.youtube.com/vi/5BR9OJgX5cM/maxresdefault.jpg"/>
-<h3>Mountain Ride</h3>
 </div>
 <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/Nw1fFY_aGP8')">
 <img alt="Vlog 4" src="https://img.youtube.com/vi/Nw1fFY_aGP8/maxresdefault.jpg"/>
@@ -292,16 +291,7 @@
 </div>
 </div>
 </section>
-<!-- WALLPAPER GALLERY -->
-<section class="wallpapers" id="wallpapers">
-<h2>Wallpapers</h2>
-<div class="card-grid">
-<div class="card"><img alt="Wallpaper 1" src="bikewall1.jpeg"/></div>
-<div class="card"><img alt="Wallpaper 2" src="bikewall2.jpeg"/></div>
-<div class="card"><img alt="Wallpaper 3" src="bikewall3.jpeg"/></div>
-<div class="card"><img alt="Wallpaper 4" src="bikewall4.jpeg"/></div>
-</div>
-</section>
+
 <!-- SPOTIFY PLAYLISTS -->
 <section class="spotify" id="spotify">
 <h2>Spotify Playlists</h2>
