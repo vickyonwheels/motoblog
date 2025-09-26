@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vicky OnWheels | Ride With Me</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vicky OnWheels | Ride With Me</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+<style>
     /* ===== GLOBAL ===== */
     * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
@@ -139,128 +140,195 @@
       nav ul li {margin: 0 8px;}
       nav ul li a {font-size: 0.9rem;}
     }
-  </style>
+  
+/* ===== VIDEO MODAL ===== */
+.video-modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.video-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-content iframe {
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE VIDEO MODAL ===== */
+@media (max-width: 768px) {
+  .video-content {
+    width: 95%;
+  }
+  .video-content iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-content iframe {
+    height: 200px;
+  }
+}
+</style>
 </head>
 <body>
-  <!-- HEADER / NAVBAR -->
-  <header id="navbar">
-    <div class="logo">Vicky<span>OnWheels</span></div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#videos">Youtube</a></li>
-        <li><a href="#spotify">Spotify</a></li>
-        <li><a href="#gear">Gears</a></li>
-        <li><a href="#wallpapers">Wallpapers</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- HEADER / NAVBAR -->
+<header id="navbar">
+<div class="logo">Vicky<span>OnWheels</span></div>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#videos">Youtube</a></li>
+<li><a href="#spotify">Spotify</a></li>
+<li><a href="#gear">Gears</a></li>
+<li><a href="#wallpapers">Wallpapers</a></li>
+</ul>
+</nav>
+</header>
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Ride. Record. Relive.</h1>
+<p>Follow my journey across highways, cities, and mountains through Moto-Vlogs.</p>
+<a class="btn" href="#videos">Watch My Vlogs</a>
+</div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+<div class="container">
+<h2>About Me</h2>
+<p>I'm a passionate rider who documents adventures on two wheels. From city rides to mountain trails, I bring you raw, real, and thrilling Moto-Vlogs. Subscribe and join the ride!</p>
+</div>
+</section>
+<!-- VIDEOS SECTION -->
+<section class="videos" id="videos">
+<h2>Youtube Vlogs</h2>
+<div class="video-grid">
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/rYPozqWB5gA')">
+<img alt="Vlog 1" src="https://img.youtube.com/vi/rYPozqWB5gA/maxresdefault.jpg"/>
+<h3>Night Ride</h3>
+</div>
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/Iu9K4sWfbkw')">
+<img alt="Vlog 2" src="https://img.youtube.com/vi/Iu9K4sWfbkw/maxresdefault.jpg"/>
+<h3>City Ride</h3>
+</div>
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/6248srd0dwc')">
+<img alt="Vlog 3" src="https://img.youtube.com/vi/6248srd0dwc/maxresdefault.jpg"/>
+<h3>Mountain Ride</h3>
+</div>
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/Nw1fFY_aGP8')">
+<img alt="Vlog 4" src="https://img.youtube.com/vi/Nw1fFY_aGP8/maxresdefault.jpg"/>
+<h3>Ride Gone Wrong</h3>
+</div>
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/7TgF9PrhG-U')">
+<img alt="Vlog 5" src="https://img.youtube.com/vi/7TgF9PrhG-U/maxresdefault.jpg"/>
+<h3>Lake Trails</h3>
+</div>
+<div class="video-card" onclick="openVideo('https://www.youtube.com/embed/02qXrNlkXu4')">
+<img alt="Vlog 6" src="https://img.youtube.com/vi/02qXrNlkXu4/maxresdefault.jpg"/>
+<h3>Highway Rain Ride</h3>
+</div>
+</div>
+</section>
+<!-- GEAR GUIDES -->
+<section class="gear" id="gear">
+<h2>Riding Gears</h2>
+<div class="card-grid">
+<div class="card">
+<img alt="Jackets" src="jacket.jpg"/>
+<h3>Riding Jackets</h3>
+<a href="https://rynoxgear.com/collections/protective-gear/products/rynox-tornado-pro-4-jacket-black-orange-hiviz-green-white-red-all-black?variant=40822286909507" target="_blank">View Gear</a>
+</div>
+<div class="card">
+<img alt="Pants" src="pant.jpg"/>
+<h3>Riding Pants</h3>
+<a href="https://rynoxgear.com/collections/protective-gear/products/rynox-air-gt-riding-pant" target="_blank">View Gear</a>
+</div>
+<div class="card">
+<img alt="Gloves" src="gloves.jpg"/>
+<h3>Gloves &amp; Accessories</h3>
+<a href="https://viaterragear.com/products/grid-mk3-full-gauntlet-riding-gloves" target="_blank">View Gear</a>
+</div>
+</div>
+</section>
+<!-- WALLPAPER GALLERY -->
+<section class="wallpapers" id="wallpapers">
+<h2>Wallpapers</h2>
+<div class="card-grid">
+<div class="card"><img alt="Wallpaper 1" src="https://images.unsplash.com/photo-1617938595243-106ebc3c0770"/></div>
+<div class="card"><img alt="Wallpaper 2" src="https://plus.unsplash.com/premium_photo-1661963005592-182d602c6a3f"/></div>
+<div class="card"><img alt="Wallpaper 3" src="https://plus.unsplash.com/premium_photo-1661963676028-4df834387828"/></div>
+<div class="card"><img alt="Wallpaper 4" src="https://images.unsplash.com/photo-1607863184849-39e8b9e5311c"/></div>
+</div>
+</section>
+<!-- SPOTIFY PLAYLISTS -->
+<section class="spotify" id="spotify">
+<h2>Spotify Playlists</h2>
+<div class="spotify-grid">
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" frameborder="0" src="https://open.spotify.com/embed/playlist/6WygpdorABJN07D8BKbNbL"></iframe>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" frameborder="0" src="https://open.spotify.com/embed/playlist/10rUb7j4OkOOonOznWzEWf"></iframe>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" frameborder="0" src="https://open.spotify.com/embed/playlist/4KgoGkxgUr1ilNSIZUmvhg"></iframe>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" frameborder="0" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evNZVVBPG"></iframe>
+</div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+<h2>Contact Me</h2>
+<p>Let’s connect for collaborations, rides, or sponsorships!</p>
+<div class="social-links">
+<a href="https://www.youtube.com/@vicky.onwheels"><i class="bx bxl-youtube"></i></a>
+<a href="https://www.instagram.com/vicky.onwheels"><i class="bx bxl-instagram"></i></a>
+<a href="#"><i class="bx bxl-facebook"></i></a>
+</div>
+</section>
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal">
+<div class="video-content">
+<span class="close" onclick="closeVideo()">×</span>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" frameborder="0" id="videoFrame" src=""></iframe>
+</div>
+</div>
+<script>
+  function openVideo(url) {
+    document.getElementById("videoFrame").src = url + "?autoplay=1";
+    document.getElementById("videoModal").style.display = "flex";
+  }
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Ride. Record. Relive.</h1>
-      <p>Follow my journey across highways, cities, and mountains through Moto-Vlogs.</p>
-      <a href="#videos" class="btn">Watch My Vlogs</a>
-    </div>
-  </section>
+  function closeVideo() {
+    document.getElementById("videoFrame").src = "";
+    document.getElementById("videoModal").style.display = "none";
+  }
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I'm a passionate rider who documents adventures on two wheels. From city rides to mountain trails, I bring you raw, real, and thrilling Moto-Vlogs. Subscribe and join the ride!</p>
-    </div>
-  </section>
-
-    <!-- VIDEOS SECTION -->
-  <section id="videos" class="videos">
-    <h2>Youtube Vlogs</h2>
-    <div class="video-grid">
-      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/rYPozqWB5gA')">
-        <img src="https://img.youtube.com/vi/rYPozqWB5gA/maxresdefault.jpg" alt="Vlog 1">
-        <h3>Night Ride</h3>
-      </div>
-      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/Iu9K4sWfbkw')">
-        <img src="https://img.youtube.com/vi/Iu9K4sWfbkw/maxresdefault.jpg" alt="Vlog 2">
-        <h3>City Ride</h3>
-      </div>
-      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/6248srd0dwc')">
-        <img src="https://img.youtube.com/vi/6248srd0dwc/maxresdefault.jpg" alt="Vlog 3">
-        <h3>Mountain Ride</h3>
-      </div>
-      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/Nw1fFY_aGP8')">
-        <img src="https://img.youtube.com/vi/Nw1fFY_aGP8/maxresdefault.jpg" alt="Vlog 4">
-        <h3>Ride Gone Wrong</h3>
-      </div>
-      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/7TgF9PrhG-U')">
-        <img src="https://img.youtube.com/vi/7TgF9PrhG-U/maxresdefault.jpg" alt="Vlog 5">
-        <h3>Lake Trails</h3>
-      </div>
-      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/02qXrNlkXu4')">
-        <img src="https://img.youtube.com/vi/02qXrNlkXu4/maxresdefault.jpg" alt="Vlog 6">
-        <h3>Highway Rain Ride</h3>
-      </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- GEAR GUIDES -->
-  <section id="gear" class="gear">
-    <h2>Riding Gears</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="jacket.jpg" alt="Jackets">
-        <h3>Riding Jackets</h3>
-        <a href="https://rynoxgear.com/collections/protective-gear/products/rynox-tornado-pro-4-jacket-black-orange-hiviz-green-white-red-all-black?variant=40822286909507" target="_blank">View Gear</a>
-      </div>
-      <div class="card">
-        <img src="pant.jpg" alt="Pants">
-        <h3>Riding Pants</h3>
-        <a href="https://rynoxgear.com/collections/protective-gear/products/rynox-air-gt-riding-pant" target="_blank">View Gear</a>
-      </div>
-      <div class="card">
-        <img src="gloves.jpg" alt="Gloves">
-        <h3>Gloves & Accessories</h3>
-        <a href="https://viaterragear.com/products/grid-mk3-full-gauntlet-riding-gloves" target="_blank">View Gear</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WALLPAPER GALLERY -->
-  <section id="wallpapers" class="wallpapers">
-    <h2>Wallpapers</h2>
-    <div class="card-grid">
-      <div class="card"><img src="https://images.unsplash.com/photo-1617938595243-106ebc3c0770" alt="Wallpaper 1"></div>
-      <div class="card"><img src="https://plus.unsplash.com/premium_photo-1661963005592-182d602c6a3f" alt="Wallpaper 2"></div>
-      <div class="card"><img src="https://plus.unsplash.com/premium_photo-1661963676028-4df834387828" alt="Wallpaper 3"></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1607863184849-39e8b9e5311c" alt="Wallpaper 4"></div>
-    </div>
-  </section>
-
-  <!-- SPOTIFY PLAYLISTS -->
-  <section id="spotify" class="spotify">
-    <h2>Spotify Playlists</h2>
-    <div class="spotify-grid">
-      <iframe src="https://open.spotify.com/embed/playlist/6WygpdorABJN07D8BKbNbL" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/playlist/10rUb7j4OkOOonOznWzEWf" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/playlist/4KgoGkxgUr1ilNSIZUmvhg" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evNZVVBPG" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-    </div>
-  </section>
-
-    <!-- CONTACT SECTION -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Let’s connect for collaborations, rides, or sponsorships!</p>
-    <div class="social-links">
-      <a href="https://www.youtube.com/@vicky.onwheels"><i class='bx bxl-youtube'></i></a>
-      <a href="https://www.instagram.com/vicky.onwheels"><i class='bx bxl-instagram'></i></a>
-      <a href="#"><i class='bx bxl-facebook'></i></a>
-    </div>
-  </section>
-
+  // Optional: close modal if clicked outside the video content
+  window.onclick = function(event) {
+    var modal = document.getElementById("videoModal");
+    if (event.target === modal) {
+      closeVideo();
+    }
+  }
+</script>
 </body>
 </html>
