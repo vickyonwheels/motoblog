@@ -14,7 +14,8 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #fff;
-      background: url('abstractcurrent.png') center/cover fixed no-repeat; /* Background image */
+      background: url('abstractcurrent.png') center/cover fixed no-repeat; 
+    /* Background image */
       transition: 0.3s;
     }
     a {text-decoration: none; color: inherit;}
@@ -31,16 +32,33 @@
 
     /* ===== HERO ===== */
     .hero {
-     width: 100%;
-     aspect-ratio: 16 / 9;
-     background: url('https://images.unsplash.com/photo-1615272294709-7c2966b77af7?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     text-align: center;
-     color: #fff;
-     padding: 0 20px;
-     margin-top: 60px; /* keeps below navbar */
+    width: 100%;
+    min-height: 100vh;  /* full screen height */
+    background: url('https://images.unsplash.com/photo-1615272294709-7c2966b77af7?auto=format&fit=crop&w=1350&q=80') 
+              center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    margin-top: 60px; /* keeps below navbar */
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+    .hero {
+    min-height: 80vh; /* a bit smaller on mobile */
+    background-position: top; /* shift image to show main subject */
+    }
+    .hero h1 {
+    font-size: 2rem;
+    }
+    .hero p {
+    font-size: 1rem;
+    }
+    }
+    /* keeps below navbar */
      }    
     .hero h1 {font-size: 3rem; margin-bottom: 15px; text-shadow: 2px 2px 10px #000;}
     .hero p {font-size: 1.2rem; margin-bottom: 25px;}
